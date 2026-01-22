@@ -14,9 +14,7 @@
     :root{
       --nyu-violet:#57068c;
       --nyu-violet-700:#3f0468;
-      --card:#ffffff;
       --text:#1f1f24;
-      --muted:#555766;
       --shadow: 0 18px 45px rgba(0,0,0,.18);
       --shadow-soft: 0 10px 30px rgba(0,0,0,.14);
       --radius: 18px;
@@ -47,6 +45,7 @@
       background:
         linear-gradient(180deg, rgba(87,6,140,.38) 0%, rgba(87,6,140,.18) 35%, rgba(246,241,255,.92) 100%),
         url("A_website_mockup_for_the_NYU_Shanghai_Internationa.png") center / cover no-repeat;
+      /* Replace with your hosted background image path/URL */
       filter: saturate(1.05);
       transform: scale(1.02);
       z-index:0;
@@ -63,42 +62,36 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 0px 12px 18px;
+      gap:16px;
+      padding: 10px 4px 18px;
       color:#fff;
     }
 
-    /* (4) Replace top-left logo+text with NYUSH logo image */
+    /* NYUSH LOGO (left) */
     .nyush-logo{
       display:flex;
-      align-items:flex-start;
-      gap:12px;
-      min-width: 220px;
+      align-items:center;
+      min-width: 260px;
     }
     .nyush-logo img{
-      height: 140px;
+      height: 120px; /* adjust to taste */
       width: auto;
       display:block;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,.18));
     }
-	
-	.title-img{
-	  height: 100px;   /* match the logo height */
-	  width: auto;
-	  display: block;
-	}	
 
-    /* (5) Replace top-right text with single title line */
+    /* SERIES TITLE (right, as an image) */
     .title{
-      text-align:right;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
       max-width: 760px;
     }
-    .title h1{
-      margin:0;
-      font-size: clamp(20px, 2.6vw, 34px);
-      line-height:1.15;
-      letter-spacing:-.01em;
-      text-shadow: 0 10px 24px rgba(0,0,0,.18);
-      font-weight:800;
+    .title-img{
+      height: 100px; /* match logo height */
+      width: auto;
+      display:block;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.18));
     }
 
     /* GLASS PANEL */
@@ -142,21 +135,13 @@
       background: rgba(255,255,255,.60);
       border: 1px solid rgba(87,6,140,.12);
       box-shadow: var(--shadow-soft);
+      text-decoration:none; /* makes <a> look like pill */
+      color: inherit;
     }
     .dot{
       width:10px;height:10px;border-radius:50%;
       background: var(--nyu-violet);
       box-shadow: 0 0 0 3px rgba(87,6,140,.15);
-    }
-	
-	.host-link {
-	  text-decoration: none;
-	  color: inherit;
-	}
-
-    /* (2) Host in the same pill style as time/room */
-    .host-pill{
-      font-weight:700;
     }
 
     /* GRID */
@@ -165,12 +150,6 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       padding: 10px 8px 6px;
-    }
-
-    @media (max-width: 860px){
-      .topbar{flex-direction:column; align-items:flex-start}
-      .title{text-align:left}
-      .grid{grid-template-columns: 1fr;}
     }
 
     /* SPEAKER CARD */
@@ -194,9 +173,9 @@
       opacity: 1;
     }
 
-    /* (1) Photo slot 4:5 ratio */
+    /* Photo slot: 4:5 ratio */
     .photo{
-      width: 92px;
+      width: 108px;
       aspect-ratio: 4 / 5;
       border-radius: 14px;
       overflow:hidden;
@@ -248,7 +227,7 @@
       padding-top: 12px;
     }
 
-    /* Button styles */
+    /* Buttons */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -264,8 +243,10 @@
       user-select:none;
       transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
       line-height: 1;
+      white-space: nowrap;
     }
     .btn:hover{ transform: translateY(-1px); }
+
     .btn-primary{
       background: rgba(87,6,140,.92);
       color:#fff;
@@ -275,15 +256,26 @@
       color: var(--nyu-violet-700);
       border-color: rgba(87,6,140,.18);
     }
-	.btn-disabled {
-	  background: rgba(255,255,255,.45);
-	  color: rgba(87,6,140,.35);
-	  border: 1px solid rgba(87,6,140,.10);
-	  cursor: not-allowed;
-	  pointer-events: none;
-	  box-shadow: none;
-	  opacity: 0.6;
-	}
+
+    /* Disabled + Coming-soon states */
+    .btn-disabled{
+      background: rgba(255,255,255,.45);
+      color: rgba(87,6,140,.35);
+      border: 1px solid rgba(87,6,140,.10);
+      cursor: not-allowed;
+      pointer-events: none;
+      box-shadow: none;
+      opacity: 0.60;
+    }
+    .btn-coming-soon{
+      background: rgba(255,255,255,.55);
+      color: rgba(87,6,140,.52);
+      border: 1px solid rgba(87,6,140,.18);
+      cursor: not-allowed;
+      pointer-events: none;
+      box-shadow: none;
+      opacity: .75;
+    }
 
     /* FOOTER */
     .footer{
@@ -299,9 +291,66 @@
     }
     .footer small{opacity:.9}
 
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .card{transition:none; transform:none; opacity:1;}
       .btn{transition:none;}
+    }
+
+    /* Responsive: medium screens */
+    @media (max-width: 860px){
+      .topbar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .title{
+        justify-content:flex-start;
+        width:100%;
+        max-width:100%;
+      }
+      .nyush-logo{
+        min-width: 0;
+      }
+      .nyush-logo img{
+        max-width: 100%;
+        height: auto;
+      }
+      .title-img{
+        max-width: 100%;
+        height: auto;
+      }
+      .grid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Responsive: small screens (mobile) */
+    @media (max-width: 520px){
+      .hero{ padding: 14px; }
+
+      .panel-inner{ padding: 16px; }
+
+      .info-row{ padding: 8px 4px 12px; }
+      .pill{ width: 100%; justify-content:flex-start; }
+
+      .card{
+        flex-direction: column;
+        padding: 14px;
+        gap: 12px;
+      }
+      .photo{
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .actions{
+        gap: 10px;
+      }
+      .actions .btn{
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -310,15 +359,17 @@
   <main class="hero">
     <div class="wrap">
       <header class="topbar">
-        <!-- (4) NYUSH logo image (replace src) -->
+        <!-- Replace with your NYU Shanghai logo (transparent background) -->
         <div class="nyush-logo">
-          <img src="nyushanghai_long_color.png" alt="NYU Shanghai">
+          <img src="nyush-logo.png" alt="NYU Shanghai">
         </div>
 
-        <!-- (5) Single title line -->
-		<div class="title">
-		  <img src="speaker-series-title.png" alt="NYU Shanghai International & Comparative Political Economy Speaker Series" class="title-img">
-		</div>
+        <!-- Replace with your generated series title PNG (transparent background) -->
+        <div class="title">
+          <img src="speaker-series-title.png"
+               alt="NYU Shanghai International & Comparative Political Economy Speaker Series"
+               class="title-img">
+        </div>
       </header>
 
       <section class="panel" aria-label="Speaker lineup">
@@ -327,10 +378,10 @@
             <div class="info-left">
               <span class="pill"><span class="dot"></span>Time: 3:45–5:00 PM</span>
               <span class="pill"><span class="dot"></span>Room: TBA, NYU Shanghai</span>
-              <!-- (2) Host pill -->
-              <a href="https://jingqian.org" target="_blank" rel="noopener" class="pill host-pill host-link">
-			    <span class="dot"></span>Host: Jing Qian (NYU Shanghai)
-			  </a>
+              <!-- Host pill with hyperlink -->
+              <a class="pill" href="https://jingqian.org" target="_blank" rel="noopener">
+                <span class="dot"></span>Host: Jing Qian (NYU Shanghai)
+              </a>
             </div>
           </div>
 
@@ -338,7 +389,7 @@
 
           <div class="footer">
             <small>For inquiries: <strong>jingqian@nyu.edu</strong></small>
-            <small>© NYU Shanghai</small>
+            <small></small>
           </div>
         </div>
       </section>
@@ -346,8 +397,18 @@
   </main>
 
   <script>
-    // Replace `img` and `registerUrl` with your actual URLs.
-    // (3) Each card gets its own Register button.
+    /*
+      Per speaker, set:
+      - registerUrl: string (optional)
+      - registerStatus: "active" | "disabled" | "coming-soon" (optional)
+      - detailsUrl: string (optional)
+      - detailsStatus: "active" | "disabled" | "coming-soon" (optional)
+
+      Rules:
+      - If status is "disabled" or "coming-soon", button is NOT clickable regardless of URL.
+      - If status is omitted, URL presence decides (URL => active; missing => disabled fallback).
+    */
+
     const speakers = [
       {
         date: "February 25",
@@ -355,8 +416,10 @@
         affil: "Peking University",
         sub: "National School of Development",
         img: "sifan-xue.jpg",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "",
+        registerStatus: "coming-soon",
+        detailsUrl: "",
+        detailsStatus: "coming-soon"
       },
       {
         date: "March 4",
@@ -364,8 +427,10 @@
         affil: "National University of Singapore",
         sub: "Lee Kuan Yew School of Public Policy",
         img: "zeren-li.png",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "",
+        registerStatus: "disabled",
+        detailsUrl: "",
+        detailsStatus: "disabled"
       },
       {
         date: "March 11",
@@ -373,8 +438,10 @@
         affil: "Duke Kunshan University",
         sub: "",
         img: "jianzi-he.jpg",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "https://example.com/register-jianzi",
+        registerStatus: "coming-soon",
+        detailsUrl: "",
+        detailsStatus: "coming-soon"
       },
       {
         date: "March 16",
@@ -382,8 +449,10 @@
         affil: "Osaka University",
         sub: "Osaka School of International Public Policy",
         img: "sayumi-miyano.jpg",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "",
+        registerStatus: "coming-soon",
+        detailsUrl: "https://example.com/details-sayumi",
+        detailsStatus: "coming-soon"
       },
       {
         date: "March 30",
@@ -391,8 +460,10 @@
         affil: "Nanjing University",
         sub: "School of Government",
         img: "jie-huang.jpg",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "",
+        registerStatus: "coming-soon",
+        detailsUrl: "",
+        detailsStatus: "coming-soon"
       },
       {
         date: "April 22",
@@ -400,8 +471,10 @@
         affil: "Shanghai Jiao Tong University",
         sub: "School of International and Public Affairs",
         img: "chen-xiang.webp",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "",
+        registerStatus: "coming-soon",
+        detailsUrl: "",
+        detailsStatus: "coming-soon"
       },
       {
         date: "April 29",
@@ -409,41 +482,52 @@
         affil: "Seoul National University",
         sub: "",
         img: "jieun-kim.jpg",
-        registerUrl: "#",
-        detailsUrl: "#"
+        registerUrl: "",
+        registerStatus: "coming-soon",
+        detailsUrl: "",
+        detailsStatus: "coming-soon"
       }
     ];
 
-	function speakerCardHTML(s) {
-	  const safeSub = s.sub ? `<div class="sub">${s.sub}</div>` : "";
+    function buttonHTML(label, variant, url, status) {
+      const st = (status || "").toLowerCase();
 
-	  const registerBtn = s.registerUrl
-		? `<a class="btn btn-primary" href="${s.registerUrl}" target="_blank" rel="noopener">Register</a>`
-		: `<span class="btn btn-primary btn-disabled">Register</span>`;
+      if (st === "disabled") {
+        return `<span class="btn btn-${variant} btn-disabled" aria-disabled="true">${label}</span>`;
+      }
+      if (st === "coming-soon") {
+        return `<span class="btn btn-${variant} btn-coming-soon" aria-disabled="true">${label}</span>`;
+      }
+      if (url) {
+        return `<a class="btn btn-${variant}" href="${url}" target="_blank" rel="noopener">${label}</a>`;
+      }
+      return `<span class="btn btn-${variant} btn-disabled" aria-disabled="true">${label}</span>`;
+    }
 
-	  const detailsBtn = s.detailsUrl
-		? `<a class="btn btn-ghost" href="${s.detailsUrl}" target="_blank" rel="noopener">Details</a>`
-		: `<span class="btn btn-ghost btn-disabled">Details</span>`;
+    function speakerCardHTML(s) {
+      const safeSub = s.sub ? `<div class="sub">${s.sub}</div>` : "";
 
-	  return `
-		<article class="card" role="listitem">
-		  <div class="photo">
-			<img src="${s.img}" alt="${s.name}" loading="lazy">
-		  </div>
-		  <div class="meta">
-			<div class="date">${s.date}</div>
-			<div class="name">${s.name}</div>
-			<div class="affil">${s.affil}</div>
-			${safeSub}
-			<div class="actions">
-			  ${registerBtn}
-			  ${detailsBtn}
-			</div>
-		  </div>
-		</article>
-	  `;
-	}
+      const registerBtn = buttonHTML("Register", "primary", s.registerUrl, s.registerStatus);
+      const detailsBtn  = buttonHTML("Details",  "ghost",   s.detailsUrl,  s.detailsStatus);
 
+      return `
+        <article class="card" role="listitem">
+          <div class="photo">
+            <img src="${s.img}" alt="${s.name}" loading="lazy">
+          </div>
+          <div class="meta">
+            <div class="date">${s.date}</div>
+            <div class="name">${s.name}</div>
+            <div class="affil">${s.affil}</div>
+            ${safeSub}
+            <div class="actions">
+              ${registerBtn}
+              ${detailsBtn}
+            </div>
+          </div>
+        </article>
+      `;
+    }
 
     const grid = document.getElementById("speakerGrid");
     grid.innerHTML = speakers.map(speakerCardHTML).join("");
