@@ -414,29 +414,36 @@
       }
     ];
 
-    function speakerCardHTML(s) {
-      const safeSub = s.sub ? `<div class="sub">${s.sub}</div>` : "";
-      const detailsBtn = s.detailsUrl ? `<a class="btn btn-ghost" href="${s.detailsUrl}" target="_blank" rel="noopener">Details</a>` : "";
-      const registerBtn = s.registerUrl ? `<a class="btn btn-primary" href="${s.registerUrl}" target="_blank" rel="noopener">Register</a>` : "";
+	function speakerCardHTML(s) {
+	  const safeSub = s.sub ? `<div class="sub">${s.sub}</div>` : "";
 
-      return `
-        <article class="card" role="listitem">
-          <div class="photo">
-            <img src="${s.img}" alt="${s.name}" loading="lazy">
-          </div>
-          <div class="meta">
-            <div class="date">${s.date}</div>
-            <div class="name">${s.name}</div>
-            <div class="affil">${s.affil}</div>
-            ${safeSub}
-            <div class="actions">
-              ${registerBtn}
-              ${detailsBtn}
-            </div>
-          </div>
-        </article>
-      `;
-    }
+	  const registerBtn = s.registerUrl
+		? `<a class="btn btn-primary" href="${s.registerUrl}" target="_blank" rel="noopener">Register</a>`
+		: `<span class="btn btn-primary btn-disabled">Register</span>`;
+
+	  const detailsBtn = s.detailsUrl
+		? `<a class="btn btn-ghost" href="${s.detailsUrl}" target="_blank" rel="noopener">Details</a>`
+		: `<span class="btn btn-ghost btn-disabled">Details</span>`;
+
+	  return `
+		<article class="card" role="listitem">
+		  <div class="photo">
+			<img src="${s.img}" alt="${s.name}" loading="lazy">
+		  </div>
+		  <div class="meta">
+			<div class="date">${s.date}</div>
+			<div class="name">${s.name}</div>
+			<div class="affil">${s.affil}</div>
+			${safeSub}
+			<div class="actions">
+			  ${registerBtn}
+			  ${detailsBtn}
+			</div>
+		  </div>
+		</article>
+	  `;
+	}
+
 
     const grid = document.getElementById("speakerGrid");
     grid.innerHTML = speakers.map(speakerCardHTML).join("");
