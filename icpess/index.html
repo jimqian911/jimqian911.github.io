@@ -110,38 +110,131 @@
       background: linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.18) 40%, rgba(255,255,255,.10) 100%);
     }
 
-    /* INFO ROW */
-    .info-row{
+    /* SERIES HOST */
+    .host-card{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
-      padding: 10px 8px 18px;
-      color:#231b2c;
+      gap:18px;
+      margin: 2px 8px 18px;
+      padding: 15px 17px;
+      border-radius:16px;
+      background:
+        linear-gradient(105deg, rgba(87,6,140,.11), rgba(255,255,255,.68) 42%);
+      border:1px solid rgba(87,6,140,.15);
+      box-shadow:var(--shadow-soft);
     }
-    .info-left{
+    .host-copy{
       display:flex;
       flex-wrap:wrap;
-      gap:10px 16px;
-      align-items:center;
+      align-items:baseline;
+      gap:5px 10px;
+    }
+    .host-label{
+      width:100%;
+      color:var(--nyu-violet);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .host-name{
+      color:var(--nyu-violet-700);
+      font-size:18px;
+      font-weight:850;
+    }
+    .host-affiliation{
+      color:rgba(31,31,36,.68);
+      font-size:14px;
       font-weight:650;
     }
-    .pill{
+    .host-link{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding: 10px 12px;
+      gap:7px;
+      flex:0 0 auto;
+      padding:9px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,.60);
-      border: 1px solid rgba(87,6,140,.12);
-      box-shadow: var(--shadow-soft);
-      text-decoration:none; /* makes <a> look like pill */
-      color: inherit;
+      background:rgba(87,6,140,.92);
+      color:#fff;
+      font-size:13px;
+      font-weight:750;
+      text-decoration:none;
+      transition:transform .12s ease, background .12s ease;
     }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background: var(--nyu-violet);
-      box-shadow: 0 0 0 3px rgba(87,6,140,.15);
+    .host-link:hover{
+      background:var(--nyu-violet-700);
+      transform:translateY(-1px);
+    }
+    .host-link:focus-visible{
+      outline:3px solid rgba(87,6,140,.32);
+      outline-offset:3px;
+    }
+
+    /* SEMESTER SECTIONS */
+    .semester-list{
+      display:grid;
+      gap:16px;
+      padding: 2px 8px 6px;
+    }
+    .semester{
+      border-radius: var(--radius);
+      border: 1px solid rgba(87,6,140,.14);
+      background: rgba(255,255,255,.30);
+      overflow:hidden;
+    }
+    .semester-summary{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 16px 18px;
+      cursor:pointer;
+      list-style:none;
+      background: rgba(255,255,255,.58);
+      transition: background .15s ease;
+    }
+    .semester-summary::-webkit-details-marker{ display:none; }
+    .semester-summary:hover{ background: rgba(255,255,255,.72); }
+    .semester-summary:focus-visible{
+      outline: 3px solid rgba(87,6,140,.35);
+      outline-offset: -3px;
+    }
+    .semester-heading{
+      display:flex;
+      align-items:baseline;
+      flex-wrap:wrap;
+      gap:8px 12px;
+    }
+    .semester-name{
+      font-size:20px;
+      font-weight:850;
+      color:var(--nyu-violet-700);
+      letter-spacing:-.01em;
+    }
+    .semester-meta{
+      color:rgba(31,31,36,.68);
+      font-size:14px;
+      font-weight:650;
+    }
+    .semester-toggle{
+      flex:0 0 auto;
+      color:var(--nyu-violet);
+      font-size:13px;
+      font-weight:750;
+    }
+    .semester-toggle::after{ content:"Show talks"; }
+    .semester[open] .semester-toggle::after{ content:"Hide talks"; }
+    .semester-body{ padding: 4px 0 8px; }
+    .semester-empty{
+      margin:10px;
+      padding:22px;
+      border-radius:14px;
+      background:rgba(255,255,255,.58);
+      color:rgba(31,31,36,.76);
+      font-weight:650;
+      line-height:1.5;
+      text-align:center;
     }
 
     /* GRID */
@@ -149,7 +242,7 @@
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      padding: 10px 8px 6px;
+      padding: 10px;
     }
 
     /* SPEAKER CARD */
@@ -331,8 +424,16 @@
 
       .panel-inner{ padding: 16px; }
 
-      .info-row{ padding: 8px 4px 12px; }
-      .pill{ width: 100%; justify-content:flex-start; }
+      .host-card{
+        align-items:flex-start;
+        flex-direction:column;
+        margin-left:4px;
+        margin-right:4px;
+      }
+      .host-link{ justify-content:center; width:100%; }
+      .semester-list{ padding-left:4px; padding-right:4px; }
+      .semester-summary{ align-items:flex-start; padding:14px; }
+      .semester-heading{ display:grid; gap:3px; }
 
       .card{
         flex-direction: column;
@@ -374,18 +475,18 @@
 
       <section class="panel" aria-label="Speaker lineup">
         <div class="panel-inner">
-          <div class="info-row">
-            <div class="info-left">
-              <span class="pill"><span class="dot"></span>Time: 3:45–5:00 PM</span>
-              <span class="pill"><span class="dot"></span>Room: TBA, NYU Shanghai</span>
-              <!-- Host pill with hyperlink -->
-              <a class="pill" href="https://jingqian.org" target="_blank" rel="noopener">
-                <span class="dot"></span>Host: Jing Qian (NYU Shanghai)
-              </a>
+          <div class="host-card">
+            <div class="host-copy">
+              <span class="host-label">Series host</span>
+              <span class="host-name">Jing Qian</span>
+              <span class="host-affiliation">Assistant Professor of Political Science, NYU Shanghai</span>
             </div>
+            <a class="host-link" href="https://jingqian.org" target="_blank" rel="noopener">
+              Host profile <span aria-hidden="true">→</span>
+            </a>
           </div>
 
-          <div class="grid" id="speakerGrid" role="list"></div>
+          <div class="semester-list" id="semesterList"></div>
 
           <div class="footer">
             <small>For inquiries: <strong>jingqian@nyu.edu</strong></small>
@@ -409,8 +510,22 @@
       - If status is omitted, URL presence decides (URL => active; missing => disabled fallback).
     */
 
-    const speakers = [
+    const semesters = [
       {
+        name: "Fall 2026",
+        status: "Upcoming series",
+        emptyLabel: "Schedule forthcoming",
+        emptyMessage: "Fall 2026 talks will be announced here. Stay tuned!",
+        open: true,
+        speakers: []
+      },
+      {
+        name: "Spring 2026",
+        status: "Past series",
+        open: true, // Spring 2026 is unfolded by default.
+        // open: false, // To fold it by default, comment the line above and uncomment this line.
+        speakers: [
+          {
         date: "February 25",
         name: "Sifan Xue",
         affil: "Peking University",
@@ -420,8 +535,8 @@
         registerStatus: "disabled",
         detailsUrl: "poster_xue.png",
         detailsStatus: "active"
-      },
-      {
+          },
+          {
         date: "March 4",
         name: "Zeren Li",
         affil: "National University of Singapore",
@@ -431,8 +546,8 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_Li_0304.png",
         detailsStatus: "active"
-      },
-      {
+          },
+          {
         date: "March 11",
         name: "Jianzi He",
         affil: "Duke Kunshan University",
@@ -442,8 +557,8 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_He_0311.png",
         detailsStatus: "active"
-      },
-      {
+          },
+          {
         date: "March 16",
         name: "Sayumi Miyano",
         affil: "Osaka University",
@@ -453,9 +568,9 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_Miyano_0316.png",
         detailsStatus: "active"
-      },
+          },
 
-      {
+          {
         date: "April 1",
         name: "Johannes Petry",
         affil: "Goethe University Frankfurt",
@@ -464,8 +579,8 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_Petry_0401.png",
         detailsStatus: "active"
-      },
-      {
+          },
+          {
         date: "April 15",
         name: "Jie Huang",
         affil: "Nanjing University",
@@ -475,8 +590,8 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_Huang_0330.png",
         detailsStatus: "active"
-      },
-	  {
+          },
+          {
         date: "April 22",
         name: "Chen Xiang",
         affil: "Shanghai Jiao Tong University",
@@ -486,8 +601,8 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_Xiang_0422.png",
         detailsStatus: "active"
-      },
-      {
+          },
+          {
         date: "April 29",
         name: "Jieun Kim",
         affil: "Seoul National University",
@@ -497,6 +612,8 @@
         registerStatus: "disabled",
         detailsUrl: "Poster_Kim_0429.png",
         detailsStatus: "active"
+          }
+        ]
       }
     ];
 
@@ -540,8 +657,33 @@
       `;
     }
 
-    const grid = document.getElementById("speakerGrid");
-    grid.innerHTML = speakers.map(speakerCardHTML).join("");
+    function semesterHTML(semester) {
+      const talkLabel = semester.speakers.length
+        ? `${semester.speakers.length} ${semester.speakers.length === 1 ? "talk" : "talks"}`
+        : semester.emptyLabel;
+      const openAttribute = semester.open ? " open" : "";
+      const semesterContent = semester.speakers.length
+        ? `<div class="grid" role="list">${semester.speakers.map(speakerCardHTML).join("")}</div>`
+        : `<p class="semester-empty">${semester.emptyMessage}</p>`;
+
+      return `
+        <details class="semester"${openAttribute}>
+          <summary class="semester-summary">
+            <span class="semester-heading">
+              <span class="semester-name">${semester.name}</span>
+              <span class="semester-meta">${talkLabel} · ${semester.status}</span>
+            </span>
+            <span class="semester-toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="semester-body">
+            ${semesterContent}
+          </div>
+        </details>
+      `;
+    }
+
+    const semesterList = document.getElementById("semesterList");
+    semesterList.innerHTML = semesters.map(semesterHTML).join("");
 
     // Pop-up animation on scroll
     const cards = Array.from(document.querySelectorAll(".card"));
