@@ -25,6 +25,13 @@
         background-color: #f6f8fa;
       }
 
+      header .profile-photo {
+        display: block;
+        width: 210px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
       .speaker-series-note p {
         margin: 0;
       }
@@ -107,6 +114,10 @@
       }
 
       @media print, screen and (max-width: 480px) {
+        header .profile-photo {
+          width: 120px;
+        }
+
         .publication .pub-title-row {
           align-items: flex-start;
           flex-direction: column;
@@ -126,7 +137,7 @@
   <body>
     <div class="wrapper">
       <header>
-		<img src="assets/images/profile/JingQian_POL_Profile-2024.webp" alt="Jing Qian">
+		<img class="profile-photo" src="assets/images/profile/JingQian_POL_Profile-2024.webp" alt="Jing Qian">
         <h1>Jing Qian <span style="font-family: 楷体;">钱璟</span></h1>
         <p>Assistant Professor of Political Science
 		<br>New York University Shanghai</p>
