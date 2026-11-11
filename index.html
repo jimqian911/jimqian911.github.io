@@ -17,12 +17,13 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/cv-theme.css">
     <style>
       .homepage-note {
         margin-top: 28px;
         padding: 14px 16px;
-        border-left: 2px solid #39c;
-        background-color: #f6f8fa;
+        border-left: 2px solid var(--cv-accent);
+        background-color: var(--cv-accent-light);
       }
 
       header .profile-photo {
@@ -72,11 +73,11 @@
       }
 
       .publication .pub-title a {
-        color: #222;
+        color: var(--cv-accent);
       }
 
       .publication .pub-title a:hover {
-        color: #069;
+        color: var(--cv-accent-hover);
       }
 
       .publication .pub-venue {
@@ -93,10 +94,10 @@
         flex: 0 0 auto;
         margin-left: 8px;
         padding: 0 5px;
-        border: 1px solid #d7d7d7;
+        border: 1px solid var(--cv-accent-border);
         border-radius: 4px;
-        background: #f8f8f8;
-        color: #555;
+        background: var(--cv-accent-light);
+        color: var(--cv-accent);
         font: inherit;
         font-size: 11px;
         line-height: 1.4;
@@ -104,8 +105,8 @@
       }
 
       .copy-bibtex:hover {
-        border-color: #bbb;
-        color: #222;
+        border-color: var(--cv-accent);
+        color: var(--cv-accent-hover);
       }
 
       .publication .role-note {

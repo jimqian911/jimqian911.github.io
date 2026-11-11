@@ -1,0 +1,16 @@
+:root {
+  --cv-accent: #381c6c;
+  --cv-accent-hover: #251348;
+  --cv-accent-light: #f5f2fa;
+  --cv-accent-border: #ded5ed;
+}
+
+a {
+  color: var(--cv-accent);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--cv-accent-hover);
+  text-decoration: underline;
+}
