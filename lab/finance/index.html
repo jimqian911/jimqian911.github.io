@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="中国在全球发展融资中的角色转变，上海纽约大学课堂互动。">
+  <title>发展融资互动实验室 · JQ Interactive Lab</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./activities.css">
+  <script src="./app.js" defer></script>
+  <script src="./net-transfers.js" defer></script>
+  <script src="./data-challenge.js" defer></script>
+  <script src="./debt-detective.js" defer></script>
+  <script src="./deal-room.js" defer></script>
+  <script src="./future-portfolio.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="topbar">
+    <div class="frame topbar-inner">
+      <a class="brand" href="#activities" aria-label="JQ Interactive Lab 活动总览">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span lang="en">JQ Interactive Lab</span>
+      </a>
+      <span class="local-note" data-storage-note>进度保存在此浏览器</span>
+    </div>
+  </header>
+
+  <main class="frame" id="main" tabindex="-1">
+    <div id="activities" data-view>
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero-copy">
+          <p class="hero-label">上海纽约大学 · 2026 年 11 月 26 日</p>
+          <h1 id="home-title" tabindex="-1">中国在全球发展融资<br class="hero-break">中的角色转变</h1>
+          <p>从资金如何流动，到新机构如何改变融资规则。</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-grid"></div>
+          <div class="art-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="art-orbit"></div>
+          <i class="art-point"></i>
+        </div>
+      </section>
+
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <h2 id="catalog-title">课堂活动</h2>
+          <span class="local-note">按课堂提示进入</span>
+        </div>
+        <div class="activity-grid">
+          <a class="activity-card data" href="#data-challenge">
+            <span class="activity-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="card-copy"><span class="card-title">数据预测</span><span class="card-desc">预测 2024 年跨境资金净流向</span></span>
+            <span class="activity-time">90 秒</span><span class="chevron" aria-hidden="true"></span>
+          </a>
+          <a class="activity-card debt" href="#debt-detective">
+            <span class="activity-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="card-copy"><span class="card-title">国际债务数据侦探</span><span class="card-desc">审阅三份文件，拟一份给部长的记录</span></span>
+            <span class="activity-time">3 分钟</span><span class="chevron" aria-hidden="true"></span>
+          </a>
+          <a class="activity-card deal" href="#deal-room">
+            <span class="activity-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="card-copy"><span class="card-title">全球发展融资谈判室</span><span class="card-desc">为电网项目筹资，看看银行如何回应你的提案</span></span>
+            <span class="activity-time">8 分钟</span><span class="chevron" aria-hidden="true"></span>
+          </a>
+          <a class="activity-card future" href="#future-portfolio">
+            <span class="activity-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="card-copy"><span class="card-title">未来融资组合</span><span class="card-desc">为多边银行增资，决定保留哪些项目承诺</span></span>
+            <span class="activity-time">90 秒</span><span class="chevron" aria-hidden="true"></span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <article id="data-challenge" class="activity" data-view hidden>
+      <a class="back" href="#activities">全部活动</a>
+      <header class="activity-heading">
+        <p class="eyebrow" lang="en">Data Challenge</p>
+        <h1 tabindex="-1">数据预测</h1>
+        <p>如果只看到 2018 年，你会怎么预测 2024 年？</p>
+      </header>
+      <div data-content></div>
+    </article>
+
+    <article id="debt-detective" class="activity" data-view hidden>
+      <a class="back" href="#activities">全部活动</a>
+      <header class="activity-heading">
+        <p class="eyebrow" lang="en">Debt Detective</p>
+        <h1 tabindex="-1">国际债务数据侦探</h1>
+        <p>你在 A 国财政部审核一座虚构电站的融资。查阅三份文件，逐项填写审阅记录，交给财政部长。</p>
+      </header>
+      <div data-content></div>
+    </article>
+
+    <article id="deal-room" class="activity" data-view hidden>
+      <a class="back" href="#activities">全部活动</a>
+      <header class="activity-heading">
+        <p class="eyebrow" lang="en">Deal Room</p>
+        <h1 tabindex="-1">全球发展融资谈判室</h1>
+        <p>你是 A 国财政部长。给电网项目调配人手、向银行谈条件，再把融资建议交给内阁。案例为教学模拟。</p>
+      </header>
+      <div data-content></div>
+    </article>
+
+    <article id="future-portfolio" class="activity" data-view hidden>
+      <a class="back" href="#activities">全部活动</a>
+      <header class="activity-heading">
+        <p class="eyebrow" lang="en">Future Portfolio</p>
+        <h1 tabindex="-1">未来融资组合</h1>
+        <p>你负责一笔对外发展融资预算。试着兑现新的增资目标，同时保住你认为最重要的项目承诺。</p>
+      </header>
+      <div data-content></div>
+    </article>
+    <noscript><p class="notice">请启用 JavaScript 以使用课堂活动。</p></noscript>
+  </main>
+</body>
+</html>
