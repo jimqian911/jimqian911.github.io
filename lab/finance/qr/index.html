@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24153d">
+  <title>课堂扫码入口 · JQ Interactive Lab</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #24153d;
+      color: #fff;
+      font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    main {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      gap: clamp(.5rem, 1.5vh, 1.25rem);
+      padding: clamp(.75rem, 2vh, 1.5rem) 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 4.5vmin, 3.75rem);
+      line-height: 1.2;
+    }
+
+    .code {
+      display: block;
+      width: min(72vh, 86vw, 55rem);
+      width: min(72svh, 86vw, 55rem);
+      height: auto;
+      background: #fff;
+      border-radius: .65rem;
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
+    }
+
+    .address {
+      margin: 0;
+      color: #e5d9ff;
+      font-size: clamp(.9375rem, 2.4vmin, 1.75rem);
+      overflow-wrap: anywhere;
+    }
+
+    .return {
+      display: inline-grid;
+      place-items: center;
+      min-height: 3rem;
+      padding: .52rem 1.6rem;
+      border: 2px solid #b697e8;
+      border-radius: .6rem;
+      background: #f4edff;
+      color: #2b164d;
+      font-size: clamp(1rem, 2.35vmin, 1.55rem);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .return:hover { background: #e9d9ff; }
+    .return:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      .code { width: min(64vh, 73vw, 35rem); width: min(64svh, 73vw, 35rem); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>微信扫码进入课堂活动</h1>
+    <img class="code" src="./overview.png" width="740" height="740" alt="课堂活动总览二维码">
+    <p class="address">jingqian.org/lab/finance/</p>
+    <a class="return" href="../#activities">返回活动主页</a>
+  </main>
+</body>
+</html>
